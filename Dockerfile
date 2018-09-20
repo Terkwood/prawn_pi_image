@@ -40,4 +40,8 @@ RUN set -eux; \
 rustc --version;
 
 RUN apt-get install -y git
-
+RUN git clone https://github.com/SergioBenitez/Rocket
+WORKDIR "/Rocket"
+RUN git checkout v0.3.16
+WORKDIR "/Rocket/examples/hello_world"
+CMD "cargo run"
